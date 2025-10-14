@@ -1,0 +1,20 @@
+.block-1 {
+    background-color: rgb(235, 206, 190);
+    color: aliceblue;
+
+}
+.p-text {
+    color: purple;
+}
+.red-block {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+}
+.block-2 {
+    background-color: rgb(157, 0, 141);
+}
+.pw-text {
+    background-color: #f80296;
+    color: blanchedalmond;
+}
