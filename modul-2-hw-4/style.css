@@ -23,5 +23,6 @@
 .text-5 {
     text-decoration: double underline;  
     font-size: 25px;
-    word-spacing: 30px;    
+    letter-spacing: 30px;    
 }
+
