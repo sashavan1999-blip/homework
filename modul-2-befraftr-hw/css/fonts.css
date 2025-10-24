@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Bitcount Grid Single";
+    src: local("Bitcount Grid Single Regular"), local("BitcountGridSingle-Regular"),
+        url("../fonts/BitcountGridSingle-Regular.woff2") format("woff2"),
+        url("../fonts/BitcountGridSingle-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

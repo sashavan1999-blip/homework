@@ -1,0 +1,33 @@
+body {
+    background: #262628;
+}
+p {
+    font-size: 3rem;
+    color: antiquewhite;
+}
+.block {
+    position: fixed ;
+    left: 50%;
+    margin-right: 50px;
+    margin-bottom: 100px;
+    top: 70%;
+
+    min-height: 100px;
+    min-width: 45%;
+    border-radius: 10px;
+    background: #fff;
+}
+.circle {
+    background: red;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+
+
+/* =================================================== */
