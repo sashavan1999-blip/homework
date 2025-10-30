@@ -4,6 +4,7 @@ let user = {
         return `Hi ${name}!`;
     }
 };
+console.log(user.heil('Alexandr Mitunevich'));
 let users = [
     {name: 'Diana', role: 'user'},
     {name: 'Ioann', role: 'user'},
@@ -17,4 +18,6 @@ for (let i = 0; i < users.length; i++) {
     }
 }
 console.log(defUsr)
+
+
 
