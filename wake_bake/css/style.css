@@ -4,6 +4,7 @@
     --general-bg: #F8FCFF;
     --accent-orange: #ffa55c;
     --peach-bg: #ffe0cb;
+    --accent-lavanda: #ceaad0;
     --transition: all .4s;
     --border-radius: 20px;
 }
@@ -31,6 +32,10 @@ body {
     padding: 140px 0;
 }
 
+.main__program {
+    padding-bottom: 145px;
+}
+
 .container {
     max-width: 1310px;
     margin: 0 auto;
@@ -51,6 +56,13 @@ body {
     display: block; 
     это был мой вариант, только щас додумался оставлять свои варианты и закоментить их(
 } */
+.title {
+    color: var(--title-text);
+    font-family: 'Gabriola';
+    font-size: 74px;
+    line-height: .82;
+}
+
 .button {
     width: 100%;
     display: flex;
@@ -360,10 +372,6 @@ body {
 }
 
 .hero__title {
-    color: var(--title-text);
-    font-family: 'Gabriola';
-    font-size: 74px;
-    line-height: .82;
     margin-bottom: 30px;
 
 }
@@ -501,7 +509,7 @@ body {
     position: absolute;
     inset: 5px;
     border-radius: 50%;
-    border: 1px solid #ceaad0;
+    border: 1px solid var(--accent-lavanda);
 
     opacity: 0;
     transition: var(--transition);
@@ -511,22 +519,9 @@ body {
     opacity: 1;
 }
 
-.about__body {}
-
 .about__heading {
     margin-bottom: 30px;
 }
-
-.about__title {
-    font-family: Gabriola;
-    font-size: 74px;
-    line-height: 0.82;
-    color: var(--title-text);
-}
-
-.about__title-text {}
-
-.about__text {}
 
 .about__grid {
     display: grid;
@@ -534,7 +529,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.about__grid-item{
+.about__grid-item {
     border-radius: 20px;
     background: var(--peach-bg);
     padding: 29px 24px;
@@ -554,7 +549,274 @@ body {
     justify-content: center;
 }
 
-.about__grid-text {}
+
+/* =============================================================== */
+
+.program__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    gap: 30px 15px;
+}
+
+.program__title {
+    margin-bottom: 20px;
+}
+
+.program__tab-content {
+    margin-bottom: 40px;
+}
+
+.program__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.program__action {
+    display: grid;
+    grid-template: repeat(3, auto) / 1.65fr 1fr;
+    gap: 40px;
+    max-width: 501px;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.program__discount {
+    grid-row: 1 / 3;
+    border-radius: var(--border-radius);
+    background: var(--peach-bg);
+    font-size: 20px;
+    padding: 40px;
+}
+
+.program__discount-value {
+    color: var(--accent-orange);
+    font-family: 'Gabriola';
+    font-size: 74px;
+    font-weight: 400;
+    line-height: .82;
+    margin-left: 13%;
+    margin-bottom: 7px;
+
+    animation: discount-grow .8s linear infinite alternate;
+    transform-origin: 0 0;
+}
+
+@keyframes discount-grow {
+    0% {
+        transform: scale(1);
+        color: var(--accent-orange);
+    }
+
+    100% {
+        transform: translateX(3%) scale(1.1);
+        color: #ff9138;
+    }
+}
+
+.program__discount span {
+    display: block;
+    font-size: 16px;
+    margin-left: 45%;
+}
+
+.program__price {}
+
+.program__price-text {
+    text-transform: uppercase;
+    color: var(--accent-lavanda);
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+.program__price-value {
+    color: var(--general-text);
+    font-family: 'Gabriola';
+    font-size: 32px;
+    line-height: .9;
+
+}
+
+
+
+.program__price-value--big {
+    font-size: 50px;
+    color: var(--title-text);
+}
+
+.program__button {
+    grid-column: 1 / -1;
+}
+
+.program__img img {
+    width: 100%;
+}
+
+
+.tab-controls {
+    display: flex;
+    gap: 26px;
+}
+
+
+.tab-controls__link {
+    display: block;
+    border-radius: 100px;
+    padding: 14px 30px;
+    box-shadow: 0px 4px 20px 0px rgba(206, 195, 185, 0.3);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.tab-controls__link:hover {
+    background: #ffe0cb;
+}
+
+.tab-controls__link--active {
+    background: #FFE0CB;
+    box-shadow: 0px 4px 20px 0px rgba(206, 195, 185, 0);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content--show {
+    display: block;
+}
+
+
+.accordion-list {}
+
+.accordion-list__item {
+    margin-bottom: 30px;
+    border: 1px solid var(--accent-orange);
+    border-radius: var(--border-radius);
+}
+
+.accordion-list__item:last-child {
+    margin-bottom: 0px;
+}
+
+.accordion-list__control {
+    padding: 41px 30px;
+    width: 100%;
+    background: transparent;
+    text-align: left;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: var(--title-text);
+    font-family: 'Gabriola';
+    font-size: 42px;
+    font-weight: 400;
+    line-height: .9;
+    transition: var(--transition);
+}
+
+.accordion-list__item--opened .accordion-list__control {
+    padding-bottom: 20px;
+}
+
+.accordion-list__control:hover .accordion-list__control-icon {
+    background: var(--accent-orange);
+    transform: rotate(90deg);
+}
+
+.accordion-list__control:hover .accordion-list__control-icon path {
+    fill: var(--general-bg);
+}
+
+.accordion-list__item--opened .accordion-list__control-icon {
+    background: var(--accent-orange);
+    transform: rotate(90deg);
+}
+
+.accordion-list__item--opened .accordion-list__control-icon path {
+    fill: var(--general-bg);
+}
+
+.accordion-list__control-icon svg {
+    margin-left: 2px;
+}
+
+.accordion-list__control-icon path {
+    transition: var(--transition);
+}
+
+
+.accordion-list__control-icon {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid var(--accent-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.accordion-list__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.accordion-content {
+    padding: 0 30px 40px;
+    display: flex;
+    gap: 80px;
+}
+
+.accordion-content__col {}
+
+.accordion-content__col:first-child {
+    max-width: 507px;
+    width: 100%;
+}
+
+.accordion-content__title {
+    color: var(--accent-lavanda);
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.accordion-content__list {}
+
+.accordion-content__item {
+    margin-bottom: 20px;
+    display: flex;
+
+}
+
+.accordion-content__item:last-child {
+    margin-bottom: 0x;
+}
+
+.accordion-content__icon {
+    border: 1px solid var(--accent-lavanda);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    display: inline-flex;
+    flex-shrink: 0;
+
+}
+
+.accordion-content__text {
+    max-width: 274px;
+}
 
 /* ================================================================== */
 .footer {
@@ -697,6 +959,17 @@ body {
         max-width: 377px;
     }
 
+    /* ============================== */
+    .program__top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-controls {
+        flex-wrap: wrap;
+    }
+
+
 
     /* ========================= */
 
@@ -724,6 +997,17 @@ body {
 
     .about__body {
         align-self: center;
+    }
+
+    /* ===================== */
+
+    .accordion-content {
+        gap: 30px;
+    }
+
+    .accordion-list__control {
+        padding: 25px 30px;
+        font-size: 35px;
     }
 }
 
@@ -758,12 +1042,20 @@ body {
         display: flex;
     }
 
+    /* ------------------- */
+    .program__action {
+        max-width: none;
+        grid-template: repeat(3, auto) / minmax(280px, 1fr) 1fr;
+    }
+
+    .program__img {
+        display: none;
+    }
+
     /* ------------------ */
     .footer__inner {
-        justify-content: center;
-        grid-template: none;
-        text-align: center;
-        gap: 0;
+        top: -8px;
+        left: -13px;
     }
 
     .footer__col:first-child {
@@ -813,32 +1105,62 @@ body {
     .about__img {
         max-width: 500px;
         justify-self: center;
-        
+
     }
+
     .about__body {
         text-align: center;
     }
+
     .about__grid {
         grid-template: none;
+    }
+
+    /* ==================================== */
+    .tab-controls {
+        gap: 10px;
+    }
+
+    .tab-controls__link {
+        padding: 6px 20px;
+    }
+
+    /* ===============================  */
+    .accordion-content {
+        flex-direction: column;
+    }
+
+    .accordion-content__col:first-child {
+        max-width: none;
+    }
+
+    .accordion-content__text {
+        max-width: none;
     }
 }
 
 @media (max-width: 600px) {
     .main__about {
-        padding: 60px 0 80px
+        padding: 60px 0 80px;
     }
-    /* =========================== */
-    .hero__title {
+    .main__program {
+        padding: 0 0 80px;
+    }
+    .title {
         font-size: 12vw;
     }
-    
+
+    /* =========================== */
+
     .header__hero {
         padding-bottom: 80px;
     }
+
     /* =================================== */
     .about__grid {
         gap: 15px;
     }
+
     .about__img-control {
         bottom: 0;
         left: 0;
@@ -847,26 +1169,91 @@ body {
         border-radius: 0;
         padding: 10px 15px;
     }
-    .about__title {
-        font-size: 12vw;
-    }
+
+
     .about__grid-item {
-    padding: 10px 15px;
-}
+        padding: 10px 15px;
+    }
+
     /* ============================== */
 
+    .program__title {
+        text-align: center;
+    }
+
+    .program__top {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .program__action {
+        grid-template: repeat(3, auto) / auto auto;
+        gap: 15px;
+    }
+
+    .program__discount {
+        grid-row: auto;
+        grid-column: 1/ -1;
+        justify-self: center;
+    }
+
+    .tab-controls {
+        justify-content: center;
+    }
+
+    .accordion-list__item {
+        margin-bottom: 10px;
+    }
+
+    .accordion-list__control {
+        padding: 17px 30px;
+        font-size: 28px;
+    }
+
+    .accordion-list__control-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .accordion-list__control-icon svg {
+        width: 10px;
+    }
+
 
 }
-@media (max-width: 400px) {
-    .modal__img{
+
+@media (max-width: 450px) {
+    .modal__img {
         width: 50%;
         margin-top: -45px;
     }
+
     .modal__title {
         font-size: 35px;
     }
+
     .modal__window {
         padding: 0 15px 45px;
+    }
+
+    /* ========================= */
+    .program__action {
+        grid-template: none;
+    }
+
+    .program__price {
+        text-align: center;
+    }
+
+    .accordion-list__control {
+        padding: 17px 15px;
+    }
+
+    .accordion-content {
+        padding: 0 15px 30px;
+    }
+
+    .accordion-content__item {
+        margin-bottom: 10px;
     }
 }
 
