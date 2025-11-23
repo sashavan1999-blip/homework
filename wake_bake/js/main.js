@@ -1,5 +1,5 @@
 (function () {
-// БУРГЕР===================
+    // БУРГЕР===================
     document.addEventListener('click', burgerInit)
     function burgerInit(e) {
         const burgerIcon = e.target.closest('.burger-icon')
@@ -26,10 +26,10 @@
         e.preventDefault()
         document.body.classList.toggle('body--opened-modal')
     }
-    function modalClose (e) {
+    function modalClose(e) {
         e.preventDefault()
         const target = e.target
-        if (target.closest('.modal__cancel') || target.classList.contains('modal')){
+        if (target.closest('.modal__cancel') || target.classList.contains('modal')) {
             document.body.classList.remove('body--opened-modal')
 
         }
@@ -37,7 +37,7 @@
     // ТАБКОНТЕНТ========================================
     const tabControls = document.querySelector('.tab-controls')
     tabControls.addEventListener('click', toggleTab)
-    function toggleTab (e) {
+    function toggleTab(e) {
 
         const tabControl = e.target.closest('.tab-controls__link')
 
@@ -49,7 +49,7 @@
         const tabContent = document.querySelector(tabContentID)
         const activeControl = document.querySelector('.tab-controls__link--active')
         const activeContent = document.querySelector('.tab-content--show')
-        
+
         activeControl.classList.remove('tab-controls__link--active')
         tabControl.classList.add('tab-controls__link--active')
 
@@ -67,7 +67,7 @@
             const accordionList = e.currentTarget
             const accordionOpenedItem = accordionList.querySelector('.accordion-list__item--opened')
             const accordionOpenedContent = accordionList.querySelector('.accordion-list__item--opened .accordion-list__content')
-            
+
             const accordionControl = e.target.closest('.accordion-list__control');
             if (!accordionControl) return
             const accordionItem = accordionControl.parentElement;
@@ -78,16 +78,50 @@
                 accordionOpenedContent.style.maxHeight = null;
             }
             accordionItem.classList.toggle('accordion-list__item--opened');
-            
+
             if (accordionItem.classList.contains('accordion-list__item--opened')) {
                 accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-            }    else {
-                    accordionContent.style.maxHeight = null;
-                }
-            
+            } else {
+                accordionContent.style.maxHeight = null;
+            }
+
 
         });
 
     });
+    // Сдайдер
+
+    const swiper = new Swiper('.gallery__slider', {
+        spaceBetween: 15,
+        slidesPerView: 1.5,
+
+        pagination: {
+            el: '.gallery__pagination',
+            type: 'fraction',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.gallery__next',
+            prevEl: '.gallery__prev',
+        },
+        breakpoints: {
+
+            601: {
+                slidesPerView: 3,
+            },
+            801: {
+                spaceBetween: 32,
+            },
+            1101: {
+                slidesPerView: 4,
+                spaceBetween: 32,
+            }
+        }
+    });
+
+
+
+
 
 })() 
