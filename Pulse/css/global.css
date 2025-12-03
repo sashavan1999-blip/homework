@@ -1,0 +1,36 @@
+:root {
+    --accent-orange: #F47521;
+    --main-bg: #141414;
+    --accent-grey: #303030;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5vw;
+}
+
+body {
+    font-family: "Oswald", "Arial", sans-serif;
+    line-height: 1.5;
+    color: var(--accent-text);
+    background: var(--general-bg);
+}
+
+.wrapper {
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1740px;
+    margin: 0 auto;
+    padding: 0 15px;
+    height: 100%;
+}
+.main {
+    flex-grow: 1;
+}

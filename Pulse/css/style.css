@@ -1,0 +1,45 @@
+@import "reset.css";
+@import "global.css";
+
+/* ==================== */
+.header__top {}
+
+.header__top-inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 47px 0 51px 0;
+
+}
+
+.header__logo {}
+
+.nav {
+    display: flex;
+
+}
+
+.nav__list {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.nav__item {
+}
+
+.nav__link {
+    display: block;
+    padding: 5px 0;
+}
+
+.header__icons {}
+
+.header__icons-cart {}
+
+.header__icons-link {}
+
+.header__icons-search {}
+
+.header__icons-burger {}
+
+.header__top-underline {}
