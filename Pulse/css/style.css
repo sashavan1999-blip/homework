@@ -11,17 +11,17 @@
 
 }
 
-.header__logo {}
-
-.nav {
-    display: flex;
-
+header {
+    background: rgb(20,20,20);
 }
+
+.header__logo {}
 
 .nav__list {
     display: flex;
     gap: 50px;
     align-items: center;
+    color: white;
 }
 
 .nav__item {
@@ -32,7 +32,12 @@
     padding: 5px 0;
 }
 
-.header__icons {}
+.header__icons {
+    display: flex;
+    color: black;
+    justify-content: space-between;
+    gap: 15px
+}
 
 .header__icons-cart {}
 
