@@ -2,6 +2,7 @@
     --accent-orange: #F47521;
     --main-bg: #141414;
     --accent-grey: #303030;
+    --transition: all .4s;
 }
 
 
@@ -18,7 +19,6 @@ body {
 }
 
 .wrapper {
-    min-height: 100%;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -31,6 +31,39 @@ body {
     padding: 0 15px;
     height: 100%;
 }
+
 .main {
     flex-grow: 1;
 }
+.viev-line {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 32px;
+
+    background: var(--accent-orange);
+    padding: 43px 0 43px;
+
+    color: var(--main-bg);
+    font-family: 'Archivo';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 1px;
+
+    
+    transition: all 0.3s ease;
+}
+.viev-line:hover {
+    gap: 50px;
+    letter-spacing: 15px;
+}
+
+.viev-line__img {
+    display: block;
+}
+
+
+
+
+
