@@ -53,10 +53,11 @@ function appMod(obj, modification) {
 
     return result
 }
-
+appMod(task, completedTask)
 // let sashaTAsk = appMod(task, completedTask) 
 
 // personValues(sashaTAsk)
+
 
 
 
