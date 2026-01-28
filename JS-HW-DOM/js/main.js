@@ -40,15 +40,11 @@ const deleteTodoById = (todos, todoId) => {
 }
 
 
-// При помощи метода querySelector получаем элементы .form, .input и .todos
-// Создаем функцию createTodoElement(text), которая будет создавать todo в виде разметки
-// Создаем функцию handleCreateTodo(todos, text), которая будет вызывать createTodo и createTodoElement
 
 const formElement = document.querySelector(".form")
 const inputElement = document.querySelector(".input")
 const todosElement = document.querySelector(".todos")
 
-const buttonText = document.querySelector(".button-create")
 
 function createTodoElement(text){
   const li = document.createElement('li');
