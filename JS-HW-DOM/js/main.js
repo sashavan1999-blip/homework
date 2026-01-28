@@ -1,0 +1,75 @@
+"use strict"
+
+
+let todos = [];
+const todoKeys = {
+    id: 'id',
+    text: 'text',
+    isCompleted: 'isCompleted',
+}
+
+const createTodo = (todos, text) => {
+    const newTodo = {
+        [todoKeys.id]: todos.length + 1,
+        [todoKeys.text]: text,
+        [todoKeys.isCompleted]: false,
+    };
+    todos.push(newTodo)
+    return newTodo;
+}
+
+const completeTodoById = (todos, todoId) => {
+    const todo = todos.find(todo => todo[todoKeys.id] === todoId);
+    if (todo === undefined) {
+        console.error(`Задачи c таким id (${todoId}) не существует`)
+        return null
+    }
+    todo[todoKeys.isCompleted] = !todo[todoKeys.isCompleted];
+    return todo;
+}
+
+const deleteTodoById = (todos, todoId) => {
+    const todoIndex = todos.findIndex(todo => todo[todoKeys.id] === todoId);
+    if (todoIndex === -1) {
+        console.error(`Задачи c таким id (${todoId}) не существует`);
+        return todos;
+    }
+    todos.splice(todoIndex, 1);
+    return todos;
+
+}
+
+
+// При помощи метода querySelector получаем элементы .form, .input и .todos
+// Создаем функцию createTodoElement(text), которая будет создавать todo в виде разметки
+// Создаем функцию handleCreateTodo(todos, text), которая будет вызывать createTodo и createTodoElement
+
+const formElement = document.querySelector(".form")
+const inputElement = document.querySelector(".input")
+const todosElement = document.querySelector(".todos")
+
+const buttonText = document.querySelector(".button-create")
+
+function createTodoElement(text){
+  const li = document.createElement('li');
+  li.classList.add('todo');
+  li.innerHTML = `<div class="todo-text">${text}</div>
+          <div class="todo-actions">
+            <button class="button-complete button">&#10004;</button>
+            <button class="button-delete button">&#10006;</button>
+          </div>`
+          return li
+}
+
+function handleCreateTodo(todos, text){
+  createTodo(todos, text);
+  const todoElement = createTodoElement(text);
+  todosElement.append(todoElement)
+}
+
+formElement.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  handleCreateTodo(todos, inputElement.value);
+  inputElement.value = '';
+});
