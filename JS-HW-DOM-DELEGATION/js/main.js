@@ -61,8 +61,8 @@ function createTodoElement(todo) {
     li.dataset.id = todo[todoKeys.id];
     li.innerHTML = `<div class="todo-text">${todo[todoKeys.text]}</div>
         <div class="todo-actions">
-            <button class="button-complete button">&#10004;</button>
-            <button class="button-delete button">&#10006;</button>
+            <button class="button-complete button">&#9989;</button>
+            <button class="button-delete button">&#10060;</button>
         </div>` 
     return li
 }
