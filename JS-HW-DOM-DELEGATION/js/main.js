@@ -1,12 +1,22 @@
 "use strict"
 
 
-let todos = [];
 const todoKeys = {
     id: 'id',
     text: 'text',
     isCompleted: 'isCompleted',
 }
+const getTodosFormLocalStorage = () => {
+    return JSON.parse(localStorage.getItem("todos"));
+};
+
+const setTodosTolocalStorage = todos => {
+    localStorage.setItem("todos", JSON.stringify(todos)) 
+}
+
+
+const todos = getTodosFormLocalStorage() || [];
+
 
 const createTodo = (todos, text) => {
     const newTodo = {
@@ -45,23 +55,41 @@ const formElement = document.querySelector(".form")
 const inputElement = document.querySelector(".input")
 const todosElement = document.querySelector(".todos")
 
-function createTodoElement(text) {
+function createTodoElement(todo) {
     const li = document.createElement('li');
     li.classList.add('todo');
-    li.innerHTML = `<div class="todo-text">${text}</div>
+    li.dataset.id = todo[todoKeys.id];
+    li.innerHTML = `<div class="todo-text">${todo[todoKeys.text]}</div>
         <div class="todo-actions">
             <button class="button-complete button">&#10004;</button>
             <button class="button-delete button">&#10006;</button>
-        </div>`
+        </div>` 
     return li
 }
 
-function handleCreateTodo(todos, text) {
-    createTodo(todos, text);
-    const todoElement = createTodoElement(text);
+const renderTodods = (todos, container) => {
+    container.innerHTML = "";
+    todos.forEach(todo => {
+        const todoElement = createTodoElement(todo);
+        if (todo[todoKeys.isCompleted]) {
+            todoElement.classList.add("completed")
+        }
+        container.prepend(todoElement);
+    })
 
+}
+
+
+function handleCreateTodo(todos, text) {
+    const todo = createTodo(todos, text);
+    const todoElement = createTodoElement(todo);
+    setTodosTolocalStorage(todos);
     todosElement.prepend(todoElement)
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderTodods(todos, todosElement)
+})
 
 formElement.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -75,13 +103,18 @@ formElement.addEventListener('submit', (event) => {
 });
 
 todosElement.addEventListener('click', event => {
-    const target = event.target
-    if (target.classList.contains('button-complete')) {
-        const todoElement = target.closest('.todo')
-        todoElement.classList.toggle('completed')
+    const todo = event.target.closest('.todo')
+    if (!todo) return
+    const todoId = Number(todo.dataset.id)
+
+    if (event.target.classList.contains("button-complete")){
+        completeTodoById(todos, todoId)
+        setTodosTolocalStorage(todos);
+        todo.classList.toggle("completed")
     }
-    if (target.classList.contains('button-delete')) {
-        const todoElement = target.closest('.todo')
-        todoElement.remove()
+    if (event.target.classList.contains("button-delete")){
+        deleteTodoById(todos, todoId);
+        setTodosTolocalStorage(todos);
+        todo.remove()
     }
 })
