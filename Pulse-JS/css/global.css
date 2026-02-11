@@ -1,0 +1,69 @@
+:root {
+    --accent-orange: #F47521;
+    --main-bg: #141414;
+    --accent-grey: #303030;
+    --transition: all .4s;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5vw;
+}
+
+body {
+    font-family: "Oswald", "Arial", sans-serif;
+    line-height: 1.5;
+    color: var(--accent-text);
+    background: var(--general-bg);
+}
+
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1740px;
+    margin: 0 auto;
+    padding: 0 15px;
+    height: 100%;
+}
+
+.main {
+    flex-grow: 1;
+}
+.viev-line {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 32px;
+
+    background: var(--accent-orange);
+    padding: 43px 0 43px;
+
+    color: var(--main-bg);
+    font-family: 'Archivo';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 1px;
+
+    
+    transition: all 0.3s ease;
+}
+.viev-line:hover {
+    gap: 50px;
+    letter-spacing: 15px;
+}
+
+.viev-line__img {
+    display: block;
+}
+
+
+
+
+
